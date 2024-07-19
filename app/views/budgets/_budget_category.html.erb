@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col my-auto">
+    <%= category[:category] %>
+  </div>
+  <div class="col my-auto">
+    <%= category[:budget_amount].format %>
+  </div>
+  <div class="col my-auto">
+    <%= category[:fact_amount].format %>
+  </div>
+  <div class="col my-auto">
+    <% if category[:budget_id] %>
+     <% unless category[:archive_month] %>
+      <%= link_to 'Edit', edit_budget_path(category[:budget_id]), class: 'btn btn-secondary' %>
+    <% end %>
+    <% end %>
+  </div>
+</div>

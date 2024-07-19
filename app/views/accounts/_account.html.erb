@@ -1,0 +1,15 @@
+<%= link_to account_path(account), class: "no-underline" do %>
+<div id="<%= dom_id account %>" class="account">
+  <div class="account-name">
+    <strong><%= account.name %></strong>
+  </div>
+
+<div class="balance">
+  <% if account.credit? %>
+    <%= humanized_money_with_symbol(-account.current_balance) %>
+  <% else %>
+    <%= humanized_money_with_symbol(account.current_balance) %>
+  <% end %>
+</div>
+</div>
+<% end %>

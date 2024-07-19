@@ -1,0 +1,284 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding-top: 120px;
+  margin-bottom: 5vw;
+  background: url(image_path("brushed-alum.png")),
+    linear-gradient(to bottom right, rgb(100, 214, 180), rgb(0, 160, 165)); // 20, 190, 165
+}
+
+main {
+  margin: 0 5vw;
+}
+
+.navbar {
+  position: fixed; 
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgb(199, 233, 228);
+  border-bottom: 1px solid;
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    font-size: x-large;
+    gap: 1.5rem;
+    h1 {
+      background-color: rgb(20, 190, 165);
+      margin-bottom: 0;
+      padding: 0.75rem;
+      border: 1px solid;
+      border-radius: 50px;
+    }
+  }
+  .app-nav {
+    display: flex;
+    flex-direction: row;
+    ul {
+      display: flex;
+      flex-direction: row;
+      padding: 0 1em;
+      li {
+        padding: 0.5em;
+      }
+    }
+  }
+}
+  p {
+  margin: 0;
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgb(100,100,100);
+}
+
+.row-hover:hover {
+  box-shadow: 0 5px 5px rgb(20, 190, 165);
+  transform: scale(1.02);
+}
+
+.price {
+  padding: 0.25em 0.5em;
+  margin: auto;
+  width: 55%;
+  text-shadow: 2px 1px 2px rgb(220, 220, 220);
+  border-radius: 20px;
+  border: 0.5px solid;
+
+}
+.plus {
+  background-color: rgb(160, 255, 160);
+  border-color: green;
+}
+.minus {
+  background-color: rgb(255, 180, 180);
+  border-color: red;
+}
+.even {
+  background-color: rgb(255, 255, 175);
+  border-color: rgb(225, 225, 11);
+}
+
+.edit-button {
+  width: fit-content;
+  margin: auto;
+}
+.edit-button:hover {
+  transform: scale(1.5, 1.5);
+  svg {
+    color: rgb(0, 160, 0);
+  }
+}
+.row-container {
+  border: 2px solid rgb(80, 80, 80);
+  border-radius: 10px;
+  margin-top: 1em;
+  padding-bottom: 1em;
+  background-color: rgba(250, 250, 250, 0.7);
+  
+  .row {
+    padding: 0.5em 0;
+  }
+  .container {
+    padding: 0;
+    width: 95%;
+    margin: auto;
+    margin-top: 1em;
+  }
+}
+.hover:hover {
+  cursor: pointer;
+  transform: scale(1.25);
+  text-shadow: 2px 2px 5px rgb(20, 190, 165);
+}
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  .side-bar {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid rgb(80, 80, 80);
+    font-size: large;
+    height: fit-content;
+    flex: 1;
+    margin: 1rem 0;
+    background-color: rgba(250, 250, 250, 0.7);
+    
+    .side-bar-content {
+      border-radius: 5px;
+      border-bottom: 2px solid rgb(140, 140, 140);
+      text-align: center;
+      padding: 0.5rem;
+      margin: 0.5rem;
+      color: rgb(22, 22, 22);
+    }
+  }
+}
+.underline-row {
+  border-radius: 5px;
+  border-bottom: 2px solid rgb(160, 160, 160);
+}
+.no-underline {
+  text-decoration: none;
+}
+.bob {
+  
+  position: fixed;
+  z-index: 1000;
+  padding: 4em;
+  
+  background: url(image_path("brushed-alum.png")),
+    linear-gradient(to bottom right, rgb(130, 255, 218), rgb(0, 160, 165));
+    
+  /* Centering */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  /* Add the drop shadow */
+  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+
+  /* center contents*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-button {
+  background-color: #f1f2f5;
+  font-size: 16px;
+  color: rgb(17, 17, 17);
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  text-decoration: none;
+
+  position:absolute;
+  top: 15px; 
+  right: 15px; 
+}
+.cancel-button:hover {
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2), 0 5px 10px 0 rgba(0,0,0,0.19);
+}
+
+.form-title {
+  padding-bottom: 2rem;
+}
+
+.form-field {
+  padding-bottom: 1rem;
+  font-size: x-large;
+}
+
+.form-button {
+  padding-top: 1rem;
+  font-size: larger; 
+}
+
+form {
+  width:auto
+}
+
+.error-form {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  form {
+    margin: auto;
+    width: 35vw;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: rgba(250, 250, 250, 0.7);
+  }
+  .container {
+    padding: 1em;
+    border-radius: 10px;
+  }
+  .row {
+    padding: .5em 0;
+    margin: auto;
+  }
+  .error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5em;
+    margin-bottom: 0;
+    border: 2px solid red;
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: rgb(255, 181, 181);
+  }
+  .error {
+    border: 1px solid red;
+  }
+  .field-error {
+    color: red;
+  }
+}
+
+.form-header {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}

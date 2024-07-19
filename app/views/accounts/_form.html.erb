@@ -1,0 +1,72 @@
+<div class="error-form">
+  <%= form_with(model: account, local: true) do |form| %>
+    <% if account.errors.any? %>
+      <div class="error-message">
+            <p><strong>Please fill in the required fields:</strong></p>
+        </div>
+    <% end %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col my-auto">
+          <%= form.label :name, style: "display: block" %>
+        </div> 
+        <div class="col my-auto">
+          <% if form.object.errors[:name].any? %>
+            <div class="field-error">Please enter a account name.</div>
+          <% end %>
+          <%= form.text_field :name, 
+          class: form.object.errors[:name].any? ? "form-control error" : "form-control" %>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col my-auto">
+          <%= form.label :account_type, style: "display: block" %>
+        </div>
+        <div class="col my-auto">
+          <% if form.object.errors[:account_type].any? %>
+            <div class="field-error">Please enter an account type.</div>
+          <% end %>
+          <%= form.select :account_type,
+                options_for_select(Account.distinct.pluck(:account_type).sort),
+                { prompt: "Select account type" },
+                class: form.object.errors[:account_type].any? ? "form-control form-select error" : "form-control form-select" %>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col my-auto">
+          <%= form.label :current_balance, style: "display: block" %>
+        </div>
+        <div class="col my-auto">
+          <% if form.object.errors[:current_balance].any? %>
+            <div class="field-error">Please enter a valid balance.</div>
+          <% end %>
+          <%= form.number_field :current_balance,
+          value: number_with_precision(account.current_balance, precision: 2), 
+          step: 0.01, 
+          class: form.object.errors[:current_balance].any? ? "form-control error" : "form-control" %>
+        </div>
+      </div>
+      <script>document.addEventListener("DOMContentLoaded", function() {
+              const form = document.querySelector("form[local='true']");
+              if (form) {
+              form.addEventListener("submit", function() {
+              console.log("Form submitted");
+                  });
+                  }});
+      </script>
+    
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col my-auto">
+          <%= form.submit "Save", class: "btn btn-success", data: {turbo_frame: "_top"} %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
